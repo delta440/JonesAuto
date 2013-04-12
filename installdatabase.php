@@ -1,9 +1,6 @@
 <?php
 #connect
-$host = "localhost";
-$username = "root";
-$password = "";
-$sqlconnection = mysql_pconnect("$host", "$username", "$password") or die("cannot connect to sql server");
+include('sqlconnect.php');
 #create database
 $result = mysql_query("CREATE DATABASE jonesauto");
 if(!$result)
@@ -124,6 +121,8 @@ mysql_query("
 	FOREIGN KEY(VIN) REFERENCES Vehicle(VIN),
 	FOREIGN KEY(TaxPayerID) REFERENCES Customer(TaxPayerID))");	
 echo mysql_error();
+
+header("Location:menu.html");
 ?>
 
 
