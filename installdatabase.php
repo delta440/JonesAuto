@@ -27,6 +27,23 @@ mysql_query("
 echo mysql_error();
 
 mysql_query("
+	CREATE TABLE IF NOT EXISTS EmploymentHistory(
+	Employer varchar(50),
+	Title varchar(50),
+	SupervisorFirstName varchar(50),
+	SupervisorLastName varchar(50),
+	PhoneNumber int(11),
+	City varchar(50),
+	State varchar(50),
+	Zip varchar(50),
+	EmploymentHistoryID int NOT NULL AUTO_INCREMENT,
+	TaxPayerID int(9) NOT NULL,
+	PRIMARY KEY(EmploymentHistoryID),
+	FOREIGN KEY(TaxPayerID) REFERENCES Customer(TaxPayerID))");
+echo mysql_error();
+
+
+mysql_query("
 	CREATE TABLE IF NOT EXISTS Vehicle(
 	VIN int(10) NOT NULL,
 	Make varchar(50),
