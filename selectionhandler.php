@@ -9,8 +9,8 @@ switch($_POST['selection']){
 		session_destroy();
 		echo "Successfully Logged Out";
 		break;
-	case "Create Customer":
-		header("Location:createcustomer.html");
+	case "Add New Customer":
+		include('createcustomer.php');
 		break;
 	default:
 		echo "has not been implemented";

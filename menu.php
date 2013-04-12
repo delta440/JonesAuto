@@ -1,18 +1,20 @@
 <?php
+
 if(isset($_POST['selection'])){
 session_start();
 switch($_POST['selection']){
 	case "Setup Database":
-		//header("Location:installdatabase.php");
-		echo "cdata";
+		header("Location:installdatabase.php");
 		break;
 	case "Logout":
 		session_destroy();
 		echo "Successfully Logged Out";
 		break;
 	case "Add New Customer":
-		//include('createcustomer.php');
-		echo "Worked";
+		include('createcustomer.php');
+		break;
+	case "Purchase Form":
+		header('Location:purchaseform.php');
 		break;
 	default:
 		echo "has not been implemented";
@@ -26,6 +28,7 @@ switch($_POST['selection']){
 <select name = "selection">
 <option>Setup Database</option>
 <option>Add New Customer</option>
+<option>Purchase Form</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>

@@ -3,6 +3,6 @@
 session_start();
 $_SESSION['UserName'] = $_POST['username'];
 $_SESSION['Password'] = $_POST['password'];
-header("Location:Menu.html");
+header("Location:Menu.php");
 ?>
 </body></html>

@@ -98,7 +98,7 @@ mysql_query("
 	CityOfPurchase varchar(50),
 	StateOfPurchase varchar(50),
 	ZipOfPurchase varchar(50),
-	Auction bit,
+	Auction varchar(3),
 	TaxID int(9),
 	Seller varchar(50),
 	PurchaseID int NOT NULL AUTO_INCREMENT,
@@ -122,9 +122,12 @@ mysql_query("
 	FOREIGN KEY(TaxPayerID) REFERENCES Customer(TaxPayerID))");	
 echo mysql_error();
 
-header("Location:menu.html");
 ?>
-
+<html><body>
+<form action="menu.php">
+<input type = "submit" value = "Back to menu"/>
+</form>
+</body></html>
 
 
 
