@@ -12,6 +12,12 @@ switch($_POST['selection']){
 	case "Add New Customer":
 		header('Location:createcustomer.php');
 		break;
+	case "Add New Employee":
+		header('Location:createemployee.php');
+		break;
+	case "Sale Form":
+		header('Location:saleform.php');
+		break;
 	case "Purchase Form":
 		header('Location:purchaseform.php');
 		break;
@@ -30,7 +36,9 @@ switch($_POST['selection']){
 <select name = "selection">
 <option>Setup Database</option>
 <option>Add New Customer</option>
+<option>Add New Employee</option>
 <option>Purchase Form</option>
+<option>Sale Form</option>
 <option>Add Payment</option>
 <option>Logout</option>
 </select>

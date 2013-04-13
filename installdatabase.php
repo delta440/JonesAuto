@@ -80,7 +80,8 @@ mysql_query("
 	DownPayment int(7),
 	FinancedAmount int(7),
 	Commission int(7),
-	Cosigner varchar(50),
+	CosignerFirstName varchar(50),
+	CosignerLastName varchar(50),
 	SaleID int NOT NULL AUTO_INCREMENT,
 	VIN int(10) NOT NULL,
 	TaxPayerID int(9) NOT NULL,
@@ -119,6 +120,24 @@ mysql_query("
 	PRIMARY KEY(PaymentID),
 	FOREIGN KEY(VIN) REFERENCES Vehicle(VIN),
 	FOREIGN KEY(TaxPayerID) REFERENCES Customer(TaxPayerID))");	
+echo mysql_error();
+
+mysql_query("
+	CREATE TABLE IF NOT EXISTS Warrenty(
+	WarrentyName varchar(50),
+	StartDate date,
+	EndDate date,
+	Length int(7),
+	Deductable int(7),
+	Cost int(7),
+	WarrentyID int NOT NULL AUTO_INCREMENT,
+	VIN int(10) NOT NULL,
+	TaxPayerID int(9) NOT NULL,
+	SaleID int NOT NULL,
+	PRIMARY KEY(WarrentyID),
+	FOREIGN KEY(VIN) REFERENCES Vehicle(VIN),
+	FOREIGN KEY(TaxPayerID) REFERENCES Customer(TaxPayerID),
+	FOREIGN KEY(SaleID) REFERENCES Sold(SaleID))");	
 echo mysql_error();
 
 ?>
