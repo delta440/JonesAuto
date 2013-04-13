@@ -46,7 +46,6 @@ mysql_query("
 	Make varchar(50),
 	Model varchar(50),
 	Color varchar(20),
-	OnLot bit,
 	Miles int(7),
 	InteriorColor varchar(20),
 	BookPrice int(9),

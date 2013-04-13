@@ -2,13 +2,57 @@
 <head><title>Purchase Form</title></head>
 <body>
 <?php 
-if(isset ($_POST['seller']))
-		echo $_POST['seller'];
+if(isset($_POST['continue'])){
+$_SESSION['vin'] = $_POST['vin'];
+include('sqlconnect.php');
+mysql_query("USE jonesauto");
+$PurchaseDate = $_POST['purchasedate'];
+$City = $_POST['city'];
+$State = $_POST['state'];
+$Zip = $_POST['zip'];
+$Auction = $_POST['auction'];
+$TaxID = $_POST['taxid'];
+$Seller = $_POST['seller'];
+$VIN = $_POST['vin'];
+$Make = $_POST['make'];
+$Model = $_POST['model'];
+$Color = $_POST['color'];
+$Miles = $_POST['miles'];
+$InteriorColor = $_POST['interiorcolor'];
+$CarCondition = $_POST['carcondition'];
+$BookPrice = $_POST['bookprice'];
+$query ="INSERT INTO vehicle(VIN, Make, Model, Color, Miles, InteriorColor, BookPrice, CarCondition)
+		VALUES('$VIN', '$Make', '$Model', '$Color', '$Miles', '$InteriorColor', '$BookPrice', '$CarCondition')";
+mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
+
+
+
+$query ="INSERT INTO purchasedfordealership(DateOfPurchase, CityOfPurchase, StateOfPurchase,
+		ZipOfPurchase, Auction, TaxID, Seller, VIN)
+		VALUES('$PurchaseDate', '$City', '$State', '$Zip', '$Auction', '$TaxID', '$Seller', '$VIN')";
+mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
+}
+
+if(isset($_POST['continue2']) || isset($_POST['addanotherproblem'])){
+$EstimatedRepairCost= $_POST['estimatedrepaircost'];
+$ActualCost= $_POST['actualcost'];
+$Problem= $_POST['problem'];
+$VIN= $_SESSION['vin'];
+$query ="INSERT INTO repaired(EstimatedCost, ActualCost, Problem, VIN) 
+		VALUES('$EstimatedRepairCost', '$ActualCost', '$Problem', '$VIN')";
+mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
+}
+
 ?>
-<?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) && !isset($_POST['addanotherproblem'])){ ?>
+
+<?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) || (isset($_POST['isproblem']) && $_POST['isproblem'] == "No") 
+	&& !isset($_POST['addanotherproblem'])){ 
+	?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Date of purchase: <input name = "purchasedate" type = "date"/><br />
-Location: <input name= "location" type= "text"/><br />
+City: <input name= "city" type= "text"/><br />
+State: <input name= "state" type= "text"/><br />
+Zip: <input name= "zip" type= "text"/><br />
 Seller/Dealer: <input name= "seller" type= "text"/><br />
 TaxID: <input name= "taxid" type= "number"/><br />
 Auction(yes/no): <input name= "auction" type= "text"/><br />
@@ -22,6 +66,7 @@ Miles: <input name= "miles" type= "number"/><br />
 Condition of vehicle</textarea><br />
 Book Price: <input name= "bookprice" type= "number"/><br />
 Price Paid: <input name= "paidprice" type= "number"/><br />
+VIN #: <input name= "vin" type= "number"/><br />
 <input name = "continue" type = "submit" value = "Continue"/><br />
 </form>
 <?php } ?>
@@ -46,12 +91,6 @@ Actual Cost: <input name= "actualcost" type= "number"/><br />
 <input name= "continue3" type = "submit" value= "Continue"/><br />
 
 <?php } ?>
-
-
-
-
-
-
 
 <form action="menu.php">
 <input type = "submit" value = "Back to menu"/>
