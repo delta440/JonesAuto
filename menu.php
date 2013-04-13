@@ -1,3 +1,9 @@
+<!-- Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: menu.php
+ Objective: to provide a selection of forms and reports for the user
+ -->
 <?php
 if(isset($_POST['selection'])){
 session_start();

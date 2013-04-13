@@ -1,3 +1,9 @@
+<!-- Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: createdatabase.php 
+ Objective: create the database
+ -->
 <?php
 include('sqlconnect.php');
 $result = mysql_query("CREATE DATABASE JonesAuto");
