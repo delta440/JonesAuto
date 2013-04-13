@@ -5,7 +5,7 @@
 if(isset ($_POST['seller']))
 		echo $_POST['seller'];
 ?>
-<?php if(!isset($_POST['continue']) && !isset($_POST['continue2'])){ ?>
+<?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) && !isset($_POST['addanotherproblem'])){ ?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Date of purchase: <input name = "purchasedate" type = "date"/><br />
 Location: <input name= "location" type= "text"/><br />

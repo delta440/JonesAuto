@@ -1,4 +1,0 @@
-JonesAuto
-=========
-
-Database final project

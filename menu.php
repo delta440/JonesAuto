@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['selection'])){
 session_start();
 switch($_POST['selection']){
@@ -11,7 +10,7 @@ switch($_POST['selection']){
 		echo "Successfully Logged Out";
 		break;
 	case "Add New Customer":
-		include('createcustomer.php');
+		header('Location:createcustomer.php');
 		break;
 	case "Purchase Form":
 		header('Location:purchaseform.php');
