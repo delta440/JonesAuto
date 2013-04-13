@@ -3,9 +3,9 @@
 <body>
 <?php 
 if(isset($_POST['continue'])){
-$_SESSION['vin'] = $_POST['vin'];
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
+$_SESSION['vin'] = $_POST['vin'];
 $PurchaseDate = $_POST['purchasedate'];
 $City = $_POST['city'];
 $State = $_POST['state'];
@@ -19,7 +19,7 @@ $Model = $_POST['model'];
 $Color = $_POST['color'];
 $Miles = $_POST['miles'];
 $InteriorColor = $_POST['interiorcolor'];
-$CarCondition = $_POST['carcondition'];
+$CarCondition = $_POST['condition'];
 $BookPrice = $_POST['bookprice'];
 $query ="INSERT INTO vehicle(VIN, Make, Model, Color, Miles, InteriorColor, BookPrice, CarCondition)
 		VALUES('$VIN', '$Make', '$Model', '$Color', '$Miles', '$InteriorColor', '$BookPrice', '$CarCondition')";
@@ -33,7 +33,9 @@ $query ="INSERT INTO purchasedfordealership(DateOfPurchase, CityOfPurchase, Stat
 mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 }
 
-if(isset($_POST['continue2']) || isset($_POST['addanotherproblem'])){
+if(isset($_POST['continue3']) || isset($_POST['addanotherproblem'])){
+include('sqlconnect.php');
+mysql_query("USE jonesauto");
 $EstimatedRepairCost= $_POST['estimatedrepaircost'];
 $ActualCost= $_POST['actualcost'];
 $Problem= $_POST['problem'];
@@ -45,8 +47,8 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 
 ?>
 
-<?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) || (isset($_POST['isproblem']) && $_POST['isproblem'] == "No") 
-	&& !isset($_POST['addanotherproblem'])){ 
+<?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) && !isset($_POST['addanotherproblem']) || 
+	(isset($_POST['isproblem']) && $_POST['isproblem'] == "No")){ 
 	?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Date of purchase: <input name = "purchasedate" type = "date"/><br />
@@ -61,6 +63,7 @@ Make: <input name= "make" type= "text"/><br />
 Model:  <input name= "model" type= "text"/><br />
 Year: <input name= "year" type= "number"/><br />
 Color: <input name= "color" type= "text"/><br />
+Interior Color: <input name= "interiorcolor" type= "number"/><br />
 Miles: <input name= "miles" type= "number"/><br />
 <textarea rows="5" cols="60" name="condition" wrap="physical">
 Condition of vehicle</textarea><br />
@@ -82,14 +85,17 @@ Does the car have any Problems? <select name="isproblem">
 
 
 
-<?php if(isset($_POST['continue2']) || isset($_POST['addanotherproblem'])){ ?>
+<?php if(isset($_POST['continue2']) || isset($_POST['addanotherproblem'])){ 
+echo isset($_POST['continue2']) . isset($_POST['addanotherproblem']);
+?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-Problem: <input name= "problem" type= "text"/><br />
+<textarea rows="5" cols="60" name="problem" wrap="physical">
+Description of problem</textarea><br />
 Estimated Repair Cost: <input name= "estimatedrepaircost" type= "number"/><br />
 Actual Cost: <input name= "actualcost" type= "number"/><br />
 <input name= "addanotherproblem" type = "submit" value= "Add another problem"/>
 <input name= "continue3" type = "submit" value= "Continue"/><br />
-
+</form>
 <?php } ?>
 
 <form action="menu.php">

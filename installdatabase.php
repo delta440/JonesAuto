@@ -108,10 +108,10 @@ echo mysql_error();
 
 mysql_query("
 	CREATE TABLE IF NOT EXISTS Payments(
-	Due date,
-	PaymentDate date,
-	PaidDate date,
-	Amount int(7),
+	AmountDue int(7),
+	DueDate date,
+	DatePaid date,
+	AmountPaid int(7),
 	BankAccount int(15),
 	PaymentID int NOT NULL AUTO_INCREMENT,
 	VIN int(10) NOT NULL,
