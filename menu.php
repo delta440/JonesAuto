@@ -30,6 +30,9 @@ switch($_POST['selection']){
 	case "Add Payment":
 		header('Location:addpayment.php');
 		break;
+	case "Search For Customer":
+		header('Location:searchforcustomer.php');
+		break;
 	default:
 		echo "has not been implemented";
 		break;
@@ -46,6 +49,7 @@ switch($_POST['selection']){
 <option>Purchase Form</option>
 <option>Sale Form</option>
 <option>Add Payment</option>
+<option>Search For Customer</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>
