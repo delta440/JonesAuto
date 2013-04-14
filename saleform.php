@@ -1,11 +1,13 @@
 <html><head><title>Sale Form</title></head></html>
 
-//insert sale form
+
 <?php
+//insert sale form
 if(isset($_POST['continue'])){
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
 $_SESSION['taxpayerid'] = $_POST['taxpayerid'];
+$_SESSION['vin'] = $_POST['vin'];
 $DateOfSale = $_POST['dateofsale'];
 $TotalDue = $_POST['totaldue'];
 $DownPayment = $_POST['downpayment'];
@@ -22,7 +24,7 @@ $query ="INSERT INTO sold(DateOfSale, TotalDue, DownPayment, FinancedAmount, Com
 		'$CosignerFirstName', '$CosignerLastName', '$VIN', '$TaxPayerID', '$EmployeeID')";
 mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 } ?>
-//insert employee history form
+<!--insert employee history form-->
 <?php if(isset($_POST['continue2']) || isset($_POST['addmoreemploymenthistory'])){
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
@@ -43,19 +45,41 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 } ?>
 
 
-
-//display warrenty form
-<?php if(isset($_POST['continue2']) || isset($_POST['addanotherwarrenty'])){ ?>
+<?php
+//insert warrenty form
+if(isset($_POST['addanotherwarrenty']) || isset($_POST['continue3'])){
+include('sqlconnect.php');
+mysql_query("USE jonesauto");
+$VIN = $_SESSION['vin'];
+$WarrentyName = $_POST['warrentyname'];
+$StartDate = $_POST['startdate'];
+$EndDate = $_POST['enddate'];
+$Length = $_POST['length'];
+$Deductable = $_POST['deductable'];
+$Cost = $_POST['cost'];
+$TaxPayerID = $_SESSION['taxpayerid'];
+$query = "SELECT SaleID FROM Sold WHERE VIN = '$VIN'";
+$result = mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
+$row = mysql_fetch_row($result);
+$SaleID = $row[0];
+$query ="INSERT INTO warrenty(WarrentyName, StartDate, EndDate, Length, Deductable, Cost, VIN, 
+							TaxPayerID, SaleID) 
+		VALUES('$WarrentyName', '$StartDate', '$EndDate', '$Length', 
+		'$Deductable', '$Cost', '$VIN', '$TaxPayerID', '$SaleID')";
+mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
+}
+?>
+<!--display warrenty form-->
+<?php if((isset($_POST['continue']) && $_POST['isaddingemploymenthistory'] == "No")
+		||isset($_POST['continue2']) || isset($_POST['addanotherwarrenty'])){ ?>
 <html><body>
 <form  action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
-Warrenty Name:
-Start Date:
-End Date:
-Length:
-Deductable:
-Cost:
-WarrentyID:
-
+Warrenty Name: <input name = "warrentyname" type = "text"/><br />
+Start Date: <input name = "startdate" type = "date"/><br />
+End Date: <input name = "enddate" type = "date"/><br />
+Length: <input name = "length" type = "number"/><br />
+Deductable: <input name = "deductable" type = "number"/><br />
+Cost: <input name = "cost" type = "number"/><br />
 
 <input name = "addanotherwarrenty" type ="submit" value ="Add Another"/>
 <input name = "continue3" type ="submit" value ="Continue"/>
@@ -63,7 +87,7 @@ WarrentyID:
 </form>
 </body></html>
 <?php } ?>
-//display employer history form
+<!--display employer history form-->
 <?php if(isset($_POST['continue']) && $_POST['isaddingemploymenthistory'] == "Yes"
 		|| isset($_POST['addmoreemploymenthistory'])){ ?>
 <html>
@@ -85,7 +109,7 @@ Zip: <input name = "zip" type = "number"/><br />
 
 <?php } ?>
 
-//display sale form
+<!--display sale form-->
 <?php if(!isset($_POST['continue']) && !isset($_POST['continue2']) 
 		&& !isset($_POST['addanotherwarrenty'])
 		&& !isset($_POST['addmoreemploymenthistory'])){ ?>
