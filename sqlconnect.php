@@ -1,3 +1,9 @@
+<!-- Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: sqlconnect.php
+ Objective: to connect the database with the user
+ -->
 <?php
 session_start();
 $host = "localhost";

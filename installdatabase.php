@@ -1,3 +1,9 @@
+<!-- Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: installdatabase.php
+ Objective: to create the tables that will be used in the data base
+ -->
 <?php
 #connect
 include('sqlconnect.php');
