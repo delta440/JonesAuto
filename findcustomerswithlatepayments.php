@@ -45,3 +45,5 @@ Minimum # of Late Payments: <input name ="minlatepayments" type = "number"/><br 
 
 <form action="menu.php">
 <input type = "submit" value = "Back to menu"/>
+</form>
+</body></html>

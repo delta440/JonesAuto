@@ -101,6 +101,7 @@ echo mysql_error();
 mysql_query("
 	CREATE TABLE IF NOT EXISTS PurchasedForDealership(
 	DateOfPurchase date,
+	PricePaid int (9),
 	CityOfPurchase varchar(50),
 	StateOfPurchase varchar(50),
 	ZipOfPurchase varchar(50),
@@ -109,8 +110,10 @@ mysql_query("
 	Seller varchar(50),
 	PurchaseID int NOT NULL AUTO_INCREMENT,
 	VIN int(10) NOT NULL,
+	EmployeeID int NOT NULL,
 	PRIMARY KEY(PurchaseID),
-	FOREIGN KEY(VIN) REFERENCES Vehicle(VIN))");
+	FOREIGN KEY(VIN) REFERENCES Vehicle(VIN),
+	FOREIGN KEY(EmployeeID) REFERENCES Employee(EmployeeID))");
 echo mysql_error();
 
 mysql_query("

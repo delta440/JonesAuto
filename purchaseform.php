@@ -12,6 +12,7 @@ if(isset($_POST['continue'])){
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
 $_SESSION['vin'] = $_POST['vin'];
+$EmployeeID = $_POST['employeeid'];
 $PurchaseDate = $_POST['purchasedate'];
 $City = $_POST['city'];
 $State = $_POST['state'];
@@ -24,6 +25,7 @@ $Make = $_POST['make'];
 $Model = $_POST['model'];
 $Color = $_POST['color'];
 $Miles = $_POST['miles'];
+$PricePaid = $_POST['paidprice'];
 $InteriorColor = $_POST['interiorcolor'];
 $CarCondition = $_POST['condition'];
 $BookPrice = $_POST['bookprice'];
@@ -34,12 +36,13 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 
 
 $query ="INSERT INTO purchasedfordealership(DateOfPurchase, CityOfPurchase, StateOfPurchase,
-		ZipOfPurchase, Auction, TaxID, Seller, VIN)
-		VALUES('$PurchaseDate', '$City', '$State', '$Zip', '$Auction', '$TaxID', '$Seller', '$VIN')";
+		ZipOfPurchase, Auction, TaxID, Seller, VIN, EmployeeID, PricePaid)
+		VALUES('$PurchaseDate', '$City', '$State', '$Zip', '$Auction', '$TaxID', '$Seller', 
+		'$VIN', '$EmployeeID', '$PricePaid')";
 mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 }
 
-if(isset($_POST['continue3']) || isset($_POST['addanotherproblem'])){
+if(isset($_POST['continue3'])  || isset($_POST['addanotherproblem'])){
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
 $EstimatedRepairCost= $_POST['estimatedrepaircost'];
@@ -57,6 +60,7 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 	(isset($_POST['isproblem']) && $_POST['isproblem'] == "No")){ 
 	?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+EmployeeID: <input name = "employeeid" type = "number"/><br />
 Date of purchase: <input name = "purchasedate" type = "date"/><br />
 City: <input name= "city" type= "text"/><br />
 State: <input name= "state" type= "text"/><br />
@@ -91,7 +95,7 @@ Does the car have any Problems? <select name="isproblem">
 
 
 
-<?php if(isset($_POST['continue2']) || isset($_POST['addanotherproblem'])){ 
+<?php if(isset($_POST['continue2']) && (isset($_POST['isproblem']) && $_POST['isproblem'] == "Yes") || isset($_POST['addanotherproblem'])){ 
 echo isset($_POST['continue2']) . isset($_POST['addanotherproblem']);
 ?>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
