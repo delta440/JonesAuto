@@ -36,6 +36,9 @@ switch($_POST['selection']){
 	case "Edit Customer":
 		header('Location:editcustomer.php');
 		break;
+	case "Calculate Commission": //complex query
+		header('Location:calculatecommission.php');
+		break;
 	default:
 		echo "has not been implemented";
 		break;
@@ -54,6 +57,7 @@ switch($_POST['selection']){
 <option>Add Payment</option>
 <option>Search For Customer</option>
 <option>Edit Customer</option>
+<option>Calculate Commission</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>
