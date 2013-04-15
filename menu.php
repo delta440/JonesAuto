@@ -48,6 +48,12 @@ switch($_POST['selection']){
 	case "Check Employee Spending": //complex query
 		header('Location:checkemployeespending.php');
 		break;
+	case "Check Inventory": //complex query
+		header('Location:checkinventory.php');
+		break;
+	case "View Top Salesmen": //complex query
+		header('Location:viewtopsalesmen.php');
+		break;
 	default:
 		echo "has not been implemented";
 		break;
@@ -70,6 +76,8 @@ switch($_POST['selection']){
 <option>Check Warrenty Coverage</option>
 <option>Find Customers With Late Payments</option>
 <option>Check Employee Spending</option>
+<option>Check Inventory</option>
+<option>View Top Salesmen</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>

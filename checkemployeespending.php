@@ -38,7 +38,7 @@ echo "</body></html>";
 Start Date: <input name = "startdate" type = "date"/><br />
 End Date: <input name = "enddate" type = "date"/><br />
 <input name = "submit" type = "submit" value = "Submit"/><br />
-
+</form>
 <form action="menu.php">
 <input type = "submit" value = "Back to menu"/>
 </form>

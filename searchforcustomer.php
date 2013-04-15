@@ -1,5 +1,6 @@
-<html><head><title>Search For Customer</title></head>
-<body>
+<html><head><title>Search For Customer</title></head></html>
+
+<html><body>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 You can search by first name, last name, or both. You can also leave both blank to display all customers. <br />
 FirstName: <input name = "firstname" type = "text"/><br />
