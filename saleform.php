@@ -133,5 +133,9 @@ Would you like to add Employment History? <select name ="isaddingemploymenthisto
 </select>
 <input name = "continue" type ="submit" value ="Continue"/><br />
 </form>
+
+<form action="menu.php">
+<input type = "submit" value = "Back to menu"/>
+</form>
 </body></html>
 <?php } ?>

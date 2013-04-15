@@ -39,6 +39,12 @@ switch($_POST['selection']){
 	case "Calculate Commission": //complex query
 		header('Location:calculatecommission.php');
 		break;
+	case "Check Warrenty Coverage":
+		header('Location:checkwarrentycoverage.php');
+		break;
+	case "Find Customers With Late Payments":
+		header('Location:findcustomerswithlatepayments.php');
+		break;
 	default:
 		echo "has not been implemented";
 		break;
@@ -58,6 +64,8 @@ switch($_POST['selection']){
 <option>Search For Customer</option>
 <option>Edit Customer</option>
 <option>Calculate Commission</option>
+<option>Check Warrenty Coverage</option>
+<option>Find Customers With Late Payments</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>
