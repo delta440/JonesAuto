@@ -4,6 +4,7 @@
 if(isset($_POST['submit'])){
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
+$TaxPayerID = $_SESSION['taxpayerid'];
 $FirstName = $_POST['firstname'];
 $LastName = $_POST['lastname'];
 $PhoneNumber = $_POST['phonenumber'];
@@ -13,7 +14,8 @@ $State = $_POST['state'];
 $Zip = $_POST['zip'];
 $query = "UPDATE Customer 
 			SET FirstName='$FirstName', LastName = '$LastName', PhoneNumber='$PhoneNumber',
-			Gender='$Gender', City='$City', State='$State', Zip='$Zip'";
+			Gender='$Gender', City='$City', State='$State', Zip='$Zip'
+			WHERE TaxPayerID = '$TaxPayerID'";
 mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 }
 ?>
@@ -38,6 +40,7 @@ TaxPayerID: <input name = "taxpayerid" type = "number"/><br />
 include('sqlconnect.php');
 mysql_query("USE jonesauto");
 $TaxPayerID = $_POST['taxpayerid'];
+$_SESSION['taxpayerid'] = $TaxPayerID;
 $query = "SELECT * FROM Customer WHERE TaxPayerID = '$TaxPayerID'";
 $result = mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 $row = mysql_fetch_array($result);

@@ -37,9 +37,9 @@ $result = mysql_query($query) or die('Query"' . $query . '" failed' . mysql_erro
 while($row = mysql_fetch_array($result)){
 	echo "<tr>";  
 	echo "<td align='center' width='200'>" . $row['EmployeeID'] . "</td>";  
-	echo "<td align='center' width='200'>" . $row['PhoneNumber'] . "</td>";  
-	echo "<td align='center' width='100'>" . $row['FirstName'] . "</td>";
-	echo "<td align='center' width='100'>" . $row['LastName'] . "</td>";  
+	echo "<td align='center' width='200'>" . $row['FirstName'] . "</td>";  
+	echo "<td align='center' width='100'>" . $row['LastName'] . "</td>";
+	echo "<td align='center' width='100'>" . $row['PhoneNumber'] . "</td>";  
 	echo "<td align='center' width='100'>" . $row['sales'] . "</td>";  
 	echo "</tr>";
 	}

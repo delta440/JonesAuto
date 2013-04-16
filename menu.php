@@ -54,6 +54,9 @@ switch($_POST['selection']){
 	case "View Top Salesmen": //complex query
 		header('Location:viewtopsalesmen.php');
 		break;
+	case "Edit Employee":
+		header('Location:editemployee.php');
+		break;
 	default:
 		echo "has not been implemented";
 		break;
@@ -67,6 +70,7 @@ switch($_POST['selection']){
 <option>Setup Database</option>
 <option>Add New Customer</option>
 <option>Add New Employee</option>
+<option>Edit Employee</option>
 <option>Purchase Form</option>
 <option>Sale Form</option>
 <option>Add Payment</option>
