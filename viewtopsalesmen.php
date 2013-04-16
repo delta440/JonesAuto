@@ -1,5 +1,11 @@
 <http><head><title>View Top Salesmen</title></head></http>
-
+<?php
+/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: viewtopsalesmen.php
+ Objective: to create a output form which displays the sum of sales for every employee*/
+?>
 <html><body>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Start Date: <input name = "startdate" type = "date"/><br />

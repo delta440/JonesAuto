@@ -1,5 +1,10 @@
 <html><head><title>Sale Form</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: saleform.php
+ Objective: To allow the user to remove a vehicle from the database and sell it to a cusotmer. Taking customer information and warrenty information*/
+?>
 
 <?php
 //insert sale form

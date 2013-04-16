@@ -1,5 +1,10 @@
 <html><head><title>Find Customers With Late Payments</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: findcustomerwithlatepayments.php
+ Objective: To display a table of customers with a selected minmum of late payments */
+?>
 <?php
 if(isset($_POST['submit'])){
 include('sqlconnect.php');

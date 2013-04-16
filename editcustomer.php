@@ -1,5 +1,10 @@
 <html><head><title>Edit Customer</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: editcustomer.php
+ Objective: To edit customer information of a customer already in the database*/
+?>
 <?php
 if(isset($_POST['submit'])){
 include('sqlconnect.php');

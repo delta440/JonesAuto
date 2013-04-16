@@ -1,5 +1,10 @@
 <html><head><title>Check Employee Spending</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: checkemployeespending.php
+ Objective: to display a table which shows the sum of purchased vehicles and repairs for each employee.*/
+?>
 <?php
 if(isset($_POST['submit'])){
 

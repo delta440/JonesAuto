@@ -1,5 +1,10 @@
 <html><head><title>Customer Form</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: createemployee.php
+ Objective: to add an employee to the database*/
+?>
 <?php
 if(isset($_POST['submit'])){ 
 $FirstName = $_POST['firstname'];

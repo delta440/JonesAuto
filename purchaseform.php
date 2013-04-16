@@ -3,7 +3,7 @@
  Due: 2013 April 18
  Creators: Jay, Chris, Robert
  Name: purchaseform.php
-	 Objective: to input a tuple into the purchase table*/
+ Objective: to input data into the purchase table, and the repair table */
 ?>
 <html>
 <head><title>Purchase Form</title></head>

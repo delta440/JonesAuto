@@ -1,5 +1,10 @@
 <html><head><title>Calculate Commission</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: calculatecommission.php
+ Objective: To display the commission earned and calcuated over a time interval*/
+?>
 <?php
 if(isset($_POST['submit'])){
 include('sqlconnect.php');

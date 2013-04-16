@@ -1,5 +1,10 @@
 <html><head><title>Check Inventory</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: checkinventory.php
+ Objective: to display a table with the vehicles that are in stock*/
+?>
 <?php
 include('sqlconnect.php');
 mysql_query("USE jonesauto");

@@ -1,5 +1,10 @@
 <html><head><title>Search For Customer</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: searchforcustomer.php
+ Objective: create a tabel which displays the customers information that have the searched for last and/or first name left blank to find all cusotmers*/
+?>
 <html><body>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 You can search by first name, last name, or both. You can also leave both blank to display all customers. <br />

@@ -1,5 +1,10 @@
 <html><head><title>Check Warrenty Coverage</title></head></html>
-
+<?php/*Project 3660 
+ Due: 2013 April 18
+ Creators: Jay, Chris, Robert
+ Name: checkwarrentycoverage.php
+ Objective: To check if a customer's vehicle has warrenty coverage, and display the deductable */
+?>
 <?php
 if(isset($_POST['submit'])){
 include('sqlconnect.php');
