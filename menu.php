@@ -24,7 +24,7 @@ switch($_POST['selection']){
 	case "Sale Form":
 		header('Location:saleform.php');
 		break;
-	case "Purchase Form":
+	case "Purchase For Dealership Form":
 		header('Location:purchaseform.php');
 		break;
 	case "Add Payment":
@@ -69,19 +69,19 @@ switch($_POST['selection']){
 <select name = "selection">
 <option>Setup Database</option>
 <option>Add New Customer</option>
+<option>Edit Customer</option>
 <option>Add New Employee</option>
 <option>Edit Employee</option>
-<option>Purchase Form</option>
+<option>Purchase For Dealership Form</option>
 <option>Sale Form</option>
 <option>Add Payment</option>
 <option>Search For Customer</option>
-<option>Edit Customer</option>
-<option>Calculate Commission</option>
 <option>Check Warrenty Coverage</option>
+<option>Calculate Commission</option>
 <option>Find Customers With Late Payments</option>
 <option>Check Employee Spending</option>
-<option>Check Inventory</option>
 <option>View Top Salesmen</option>
+<option>Check Inventory</option>
 <option>Logout</option>
 </select>
 <input type="submit" value="Submit"/>
