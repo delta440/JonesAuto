@@ -1,3 +1,5 @@
+<html><head><title>Customer Form</title></head></html>
+
 <?php
 if(isset($_POST['submit'])){ 
 $FirstName = $_POST['firstname'];
@@ -11,7 +13,6 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 }
 ?>
 <html>
-<head><title>Customer Form</title></head>
 <body>
 <form  action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 FirstName: <input name = "firstname" type = "text"/><br />

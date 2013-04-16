@@ -1,3 +1,5 @@
+<html><head><title>Add Payment</title></head></html>
+
 <?php
 if(isset($_POST['submit'])){
 $AmountDue = $_POST['amountdue'];
@@ -21,7 +23,6 @@ mysql_query($query) or die('Query"' . $query . '" failed' . mysql_error());
 ?>
 
 <html>
-<head><title>Add Payment</title></head>
 <body>
 <form  action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Amount Due: <input name = "amountdue" type = "text"/>
